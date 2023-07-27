@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BaiEtlApplication {
+public class ETLApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BaiEtlApplication.class, args);
+		SpringApplication.run(ETLApplication.class, args);
 	}
 
 }
