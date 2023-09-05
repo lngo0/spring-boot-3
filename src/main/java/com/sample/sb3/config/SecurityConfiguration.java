@@ -1,6 +1,7 @@
 package com.sample.sb3.config;
 
 import org.apache.catalina.core.ApplicationFilterChain;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,7 +16,22 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration  {
-
+    @Value("${ssp.sp.id}")
+    private String spId;
+    @Value("${ssp.sp.id}")
+    private String spUrl;
+    @Value("${ssp.sp.scheme}")
+    private String scheme;
+    @Value("${ssp.sp.serverName}")
+    private String serverName;
+    @Value("${ssp.sp.includePort}")
+    private String includePort;
+    @Value("${server.port}")
+    private String serverPort;
+    @Value("${server.context-path}")
+    private String contextPath;
+    @Value("${ssp.idp.url}")
+    private String idpUrl;
     @Bean
     public UserDetailsService userDetailsService() {
         UserDetails user =
