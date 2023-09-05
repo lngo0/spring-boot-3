@@ -1,4 +1,22 @@
+server:
+  port: 8080
+  context-path: /etl
+  compression:
+    enable: true
+    min-template-size: 1
+
+info:
+  version: @app-version@
+  port: ${server.port}
+
+logging:
+  file: /${user.home}/apps/logs/
+
 spring:
+  profiles:
+    active: default
+  application:
+    name: @app-name@
   datasource:
     url: jdbc:mysql://localhost:3306/database
     username: ENC(DI5YjFm5vIYJs8QOQeEFLA==)
@@ -9,3 +27,13 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
+
+sso:
+  idp:
+    url: http://my-local-sso.com/metadata
+  sp:
+    id: baietl.local
+    url: http://127.0.0.1:8080/bai-etl
+    scheme: http
+    serverName: 127.0.0.1
+    includePort: true
