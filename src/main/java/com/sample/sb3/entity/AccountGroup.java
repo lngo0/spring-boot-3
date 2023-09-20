@@ -24,9 +24,9 @@ import java.util.Set;
 public class AccountGroup implements java.io.Serializable {
 
     private Integer id;
-    private Record recordByTrailerRecordId;
+    private LineRecord recordByTrailerLineRecordId;
     private BankFile bankFile;
-    private Record recordByHeaderRecordId;
+    private LineRecord recordByHeaderLineRecordId;
     private String senderId;
     private String receiverId;
     private String statusCode;
@@ -53,12 +53,12 @@ public class AccountGroup implements java.io.Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="TrailerRecordId")
-    public Record getRecordByTrailerRecordId() {
-        return recordByTrailerRecordId;
+    public LineRecord getRecordByTrailerRecordId() {
+        return recordByTrailerLineRecordId;
     }
 
-    public void setRecordByTrailerRecordId(Record recordByTrailerRecordId) {
-        this.recordByTrailerRecordId = recordByTrailerRecordId;
+    public void setRecordByTrailerRecordId(LineRecord recordByTrailerLineRecordId) {
+        this.recordByTrailerLineRecordId = recordByTrailerLineRecordId;
     }
 
 
@@ -75,12 +75,12 @@ public class AccountGroup implements java.io.Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="HeaderRecordId")
-    public Record getRecordByHeaderRecordId() {
-        return recordByHeaderRecordId;
+    public LineRecord getRecordByHeaderRecordId() {
+        return recordByHeaderLineRecordId;
     }
 
-    public void setRecordByHeaderRecordId(Record recordByHeaderRecordId) {
-        this.recordByHeaderRecordId = recordByHeaderRecordId;
+    public void setRecordByHeaderRecordId(LineRecord recordByHeaderLineRecordId) {
+        this.recordByHeaderLineRecordId = recordByHeaderLineRecordId;
     }
 
     @Column(name = "SenderId", nullable = false, length = 50)

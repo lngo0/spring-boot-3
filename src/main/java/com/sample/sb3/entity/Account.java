@@ -1,6 +1,5 @@
 package com.sample.sb3.entity;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -9,22 +8,19 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name="Account", schema = "dbo", catalog = "BAIETL")
 public class Account implements java.io.Serializable {
     private Integer id;
-    private Record recordByHeaderRecordId;
-    private Record recordByTrailerRecordId;
+    private LineRecord recordByHeaderLineRecordId;
+    private LineRecord recordByTrailerLineRecordId;
     private AccountGroup accountGroup;
     private String accountNumber;
     private BigDecimal totalAmount;
@@ -46,22 +42,22 @@ public class Account implements java.io.Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="HeaderRecordId")
-    public Record getRecordByHeaderRecordId() {
-        return recordByHeaderRecordId;
+    public LineRecord getRecordByHeaderRecordId() {
+        return recordByHeaderLineRecordId;
     }
 
-    public void setRecordByHeaderRecordId(Record recordByHeaderRecordId) {
-        this.recordByHeaderRecordId = recordByHeaderRecordId;
+    public void setRecordByHeaderRecordId(LineRecord recordByHeaderLineRecordId) {
+        this.recordByHeaderLineRecordId = recordByHeaderLineRecordId;
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="TrailerRecordId")
-    public Record getRecordByTrailerRecordId() {
-        return recordByTrailerRecordId;
+    public LineRecord getRecordByTrailerRecordId() {
+        return recordByTrailerLineRecordId;
     }
 
-    public void setRecordByTrailerRecordId(Record recordByTrailerRecordId) {
-        this.recordByTrailerRecordId = recordByTrailerRecordId;
+    public void setRecordByTrailerRecordId(LineRecord recordByTrailerLineRecordId) {
+        this.recordByTrailerLineRecordId = recordByTrailerLineRecordId;
     }
 
     @ManyToOne(fetch = FetchType.LAZY)

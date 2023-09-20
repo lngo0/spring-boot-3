@@ -36,7 +36,7 @@ public class BankFile implements java.io.Serializable {
     private Date createdTimestamp;
     private Date lastModifiedTimestamp;
     private Set<AccountGroup> accountGroupset = new HashSet<>();
-    private Set<Record> recordsset = new HashSet<>();
+    private Set<LineRecord> recordsset = new HashSet<>();
 
     public BankFile() {
     }
